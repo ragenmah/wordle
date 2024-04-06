@@ -1,0 +1,42 @@
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    width: 40px;
+    height: 40px;
+    background-color: #D3D6DA;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.delete {
+    width: 12%;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+}
+
+.enter {
+    width: 20%;
+    font-size: 14px;
+}
