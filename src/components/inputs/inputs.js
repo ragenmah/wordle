@@ -65,7 +65,7 @@ const Inputs = ({
 
   return (
     <>
-      <div className="check-corrects">
+      {/* <div className="check-corrects">
         {listOfData.length > 0 &&
           listOfData.map((value) => {
             return (
@@ -74,7 +74,7 @@ const Inputs = ({
               </div>
             );
           })}
-      </div>
+      </div> */}
       <div className="inputs">
         {/* {listOfData.length > 0 &&
         inputValues.map((row, rowIndex) => (
@@ -100,37 +100,45 @@ const Inputs = ({
             })}
           </div>
         ))} */}
-        {/* <div className="check-corrects">
+        { <div className="check-corrects">
           {listOfData.length > 0 &&
             listOfData.map((value) => {
+              value.forEach(element => {
+               
+              });
               return (
-                <div className={`input-field ${value.background}`}>
-                  <p className="text">{value.letter}</p>
+                <div key={value[0].rowIndex}  className={`input-field ${value[0].background}`}>
+                  <p className="text">{value[0].letter}</p>
                 </div>
               );
             })}
-        </div> */}
-        {/* <div className="check-corrects">
+        </div> }
+       
+        <div className="check-corrects">
         {listOfData.length > 0 &&
           listOfData.map((row, rowIndex) => {
-            {
-              <div key={rowIndex} className="input-row">
                 {row.map((value, colIndex) => {
                   console.log("row " + rowIndex + " col " + colIndex);
                   console.log(value);
-                  return (
-                    <div
+                  <div key={rowIndex} className="input-row">
+                  
+                    return (
+                      <div
                       key={colIndex}
                       className={`input-field ${value.background}`}
                     >
+                      {value.background}
                       <p className="text">{value.letter}</p>
                     </div>
-                  );
+                    );
+                  
+                </div>
+                 
                 })}
-              </div>;
-            }
+              ;
+            
           })}
-      </div> */}
+      </div>
         {inputValues.map((row, rowIndex) => (
           <div key={rowIndex} className="input-row">
             {row.map((value, colIndex) => {

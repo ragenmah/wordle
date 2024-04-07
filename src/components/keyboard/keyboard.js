@@ -7,91 +7,91 @@ const Keyboard = ({ onKeyPress }) => {
   };
 
   return (
-    <div class="keyboard">
-      <div class="key" onClick={() => handleKeyPress("Q")}>
+    <div className="keyboard">
+      <div className="key" onClick={() => handleKeyPress("Q")}>
         Q
       </div>
-      <div class="key" onClick={() => handleKeyPress("W")}>
+      <div className="key" onClick={() => handleKeyPress("W")}>
         W
       </div>
-      <div class="key" onClick={() => handleKeyPress("E")}>
+      <div className="key" onClick={() => handleKeyPress("E")}>
         E
       </div>
-      <div class="key" onClick={() => handleKeyPress("R")}>
+      <div className="key" onClick={() => handleKeyPress("R")}>
         R
       </div>
-      <div class="key" onClick={() => handleKeyPress("T")}>
+      <div className="key" onClick={() => handleKeyPress("T")}>
         T
       </div>
-      <div class="key" onClick={() => handleKeyPress("Y")}>
+      <div className="key" onClick={() => handleKeyPress("Y")}>
         Y
       </div>
-      <div class="key" onClick={() => handleKeyPress("U")}>
+      <div className="key" onClick={() => handleKeyPress("U")}>
         U
       </div>
-      <div class="key" onClick={() => handleKeyPress("I")}>
+      <div className="key" onClick={() => handleKeyPress("I")}>
         I
       </div>
-      <div class="key" onClick={() => handleKeyPress("O")}>
+      <div className="key" onClick={() => handleKeyPress("O")}>
         O
       </div>
-      <div class="key" onClick={() => handleKeyPress("P")}>
+      <div className="key" onClick={() => handleKeyPress("P")}>
         P
       </div>
 
-      <div class="key" onClick={() => handleKeyPress("A")}>
+      <div className="key" onClick={() => handleKeyPress("A")}>
         a
       </div>
-      <div class="key" onClick={() => handleKeyPress("S")}>
+      <div className="key" onClick={() => handleKeyPress("S")}>
         s
       </div>
-      <div class="key" onClick={() => handleKeyPress("D")}>
+      <div className="key" onClick={() => handleKeyPress("D")}>
         d
       </div>
-      <div class="key" onClick={() => handleKeyPress("F")}>
+      <div className="key" onClick={() => handleKeyPress("F")}>
         f
       </div>
-      <div class="key" onClick={() => handleKeyPress("G")}>
+      <div className="key" onClick={() => handleKeyPress("G")}>
         g
       </div>
-      <div class="key" onClick={() => handleKeyPress("H")}>
+      <div className="key" onClick={() => handleKeyPress("H")}>
         h
       </div>
-      <div class="key" onClick={() => handleKeyPress("J")}>
+      <div className="key" onClick={() => handleKeyPress("J")}>
         j
       </div>
-      <div class="key" onClick={() => handleKeyPress("K")}>
+      <div className="key" onClick={() => handleKeyPress("K")}>
         k
       </div>
-      <div class="key" onClick={() => handleKeyPress("L")}>
+      <div className="key" onClick={() => handleKeyPress("L")}>
         l
       </div>
 
-      <div class="key delete" onClick={() => handleKeyPress("delete")}>
+      <div className="key delete" onClick={() => handleKeyPress("delete")}>
         Delete
       </div>
-      <div class="key" onClick={() => handleKeyPress("Z")}>
+      <div className="key" onClick={() => handleKeyPress("Z")}>
         z
       </div>
-      <div class="key" onClick={() => handleKeyPress("X")}>
+      <div className="key" onClick={() => handleKeyPress("X")}>
         x
       </div>
-      <div class="key" onClick={() => handleKeyPress("C")}>
+      <div className="key" onClick={() => handleKeyPress("C")}>
         c
       </div>
-      <div class="key" onClick={() => handleKeyPress("V")}>
+      <div className="key" onClick={() => handleKeyPress("V")}>
         v
       </div>
-      <div class="key" onClick={() => handleKeyPress("B")}>
+      <div className="key" onClick={() => handleKeyPress("B")}>
         b
       </div>
-      <div class="key" onClick={() => handleKeyPress("N")}>
+      <div className="key" onClick={() => handleKeyPress("N")}>
         n
       </div>
-      <div class="key" onClick={() => handleKeyPress("M")}>
+      <div className="key" onClick={() => handleKeyPress("M")}>
         m
       </div>
-      <div class="key enter" onClick={() => handleKeyPress("enter")}>
+      <div className="key enter" onClick={() => handleKeyPress("enter")}>
         Enter
       </div>
     </div>

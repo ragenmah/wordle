@@ -23,7 +23,7 @@ const Wordle = () => {
   const [background, setBackground] = useState("");
   const [correctPosition, setCorrectPosition] = useState(0);
   const [correctPositions, setCorrectPositions] = useState([]);
-  const [compltedPositions, setCompletedPosition] = useState([]);
+  const [completedPositions, setCompletedPosition] = useState([]);
 
   const handleGuess = () => {
     var targetValue = targetWord.toUpperCase().split("");
@@ -38,16 +38,15 @@ const Wordle = () => {
     // console.log("JSON.stringify(guess).toString()");
     // console.log(guess.join("").toString());
 
-    if (guess === targetValue) {
-      setResult("Congratulations! You guessed the word!");
-      setAttemptsLeft(0);
-      return true;
-    } else {
-      const resultText = checkWord(guess, targetValue);
-      setResult(resultText);
+    // if (guess === targetValue) {
+    //   setResult("Congratulations! You guessed the word!");
+    //   setAttemptsLeft(0);
+    //   return true;
+    // } else {
+    const resultText = checkWord(guess, targetValue);
 
-      return true;
-    }
+    return resultText;
+    // }
   };
 
   const checkWord = (word, target) => {
@@ -58,9 +57,9 @@ const Wordle = () => {
     var correctPosition = [];
     var incorrectPostion = [];
     var incorrectLetter = [];
+    let correctPositionsCount = 0;
 
     if (JSON.stringify(word) === JSON.stringify(target)) {
-      console.log("inside");
       for (let i = 0; i < word.length; i++) {
         if (word[i] === target[i]) {
           correctPosition = [
@@ -75,12 +74,12 @@ const Wordle = () => {
         }
       }
       setCorrectPositions([...correctPosition]);
-      return "Congratulations! You guessed the word!";
+      setResult("Congratulations! You guessed the word!");
+      return true;
     } else {
-      let correctPositions = 0;
       for (let i = 0; i < word.length; i++) {
         if (word[i] === target[i]) {
-          correctPositions++;
+          correctPositionsCount++;
 
           correctPosition = [
             ...correctPosition,
@@ -124,9 +123,10 @@ const Wordle = () => {
       // console.log("incorrect position");
       // console.log(incorrectPostion);
 
-      setCorrectPosition(correctPositions);
+      setCorrectPosition(correctPositionsCount);
     }
 
+    // removed incorrectLetters comparing with correct words in incorrect position
     var newIncorrectLetter = [];
     if (incorrectLetter.length > 0) {
       for (var il = 0; il < incorrectLetter.length; il++) {
@@ -154,35 +154,43 @@ const Wordle = () => {
 
     setCorrectPositions(listOfData);
 
+    if (correctPositionsCount != 0) {
+      if (correctPositions.length != 0)
+        setCompletedPosition([...completedPositions, listOfData]);
+      console.log("sorted completed");
+      console.log(correctPositions);
+      console.log("sorted completed positions");
+      console.log(completedPositions);
+    }
+
     const isValidWord = wordList.filter((element) => {
       return element.toUpperCase().includes(guess.join(""));
     });
     if (!(isValidWord.length > 0)) {
       setResult("Word not found");
-      return false;
     }
     // console.warn("isValidWord");
     // console.warn(isValidWord);
-
-    return `${correctPosition}/${word.length} correct letters and positions`;
+    setResult(
+      `${correctPositionsCount}/${word.length} correct letters and positions`
+    );
+    return true;
   };
 
   const handleKeyPress = (key) => {
     if (key === "enter") {
       const guessResult = handleGuess();
-      if (guessResult && correctPositions != 0) {
-        setGuess("");
-        if (rowIndex === 4) {
+      if (
+        // rowIndex === 4 &&
+        correctPosition != 0
+      ) {
+        if (guessResult) {
+          setGuess("");
           setRowIndex(-1);
           setColIndex(colIndex + 1);
-          setCompletedPosition([...compltedPositions, correctPositions]);
           setCorrectPosition(0);
-          console.log("sorted completed");
-          console.log(correctPositions);
-          console.log("sorted positions");
-          console.log(correctPositions);
         }
-      } else if (colIndex === 6 && correctPosition.length == 0) {
+      } else if (colIndex === 5 && correctPosition == 0) {
         setResult("You are failed to guess the word");
       }
     } else if (key === "delete") {
@@ -214,7 +222,8 @@ const Wordle = () => {
         colIndx={colIndex}
         inputValue={inputValue}
         background={background}
-        listOfData={correctPositions}
+        listOfData={completedPositions}
+        // listOfData={correctPositions}
       />
       <Result result={result} attemptsLeft={attemptsLeft} />
       <Keyboard onKeyPress={handleKeyPress} />

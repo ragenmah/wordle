@@ -37,8 +37,8 @@
 
 .check-corrects {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: flex-start;
     gap: 5px;
     position: absolute;
     z-index: 100;
